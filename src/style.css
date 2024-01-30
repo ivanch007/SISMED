@@ -1,0 +1,201 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: white;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.navegador {
+  margin-top: -3%;
+  margin-bottom: -5%;
+  padding: 5%;
+  padding-top: 0%;
+}
+
+.nav-enlace {
+  background: rgb(7, 167, 207);
+  color: white;
+  padding: 10px 50px;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: rgba(6, 6, 165, 0.733);
+  margin-top: 40px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  margin-left: 300px;
+  color: blue;
+
+}
+
+.select-form{
+  width: 40%;
+  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 430px;
+  color: blue;
+  border: white 8px solid;
+  border-color: rgb(7, 167, 207);
+  border-width: thick;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #6d6c6c;
+  border-radius: 4px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: blue;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  margin-top: 10px;
+}
+
+.inicio {
+  width: 57%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+  border-color: rgb(7, 167, 207);
+  padding-right: 30px;
+  margin: auto;
+}
+
+.logo {
+  width: 250px;
+  height: 250px;
+}
+
+.logo-inicio {
+  width: 40%;
+  height: 40%;
+
+}
+
+.contenido {
+  background: rgb(164, 222, 236);
+  width: 80%;
+  height: 50%;
+  text-align: justify;
+  margin-right: 10px;
+  border: solid;
+  border-color: rgb(164, 222, 236);
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.tamaño-logo-inicio {
+
+  width: 300px;
+  height: 300px;
+
+}
+
+button {
+  padding: 10px 20px;
+  background-color: rgb(40, 31, 172);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+button:hover {
+  background-color: #5565f0;
+}
+
+
+.boton-cita {
+  padding: 10px 20px;
+  background-color:  rgb(7, 167, 207);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.boton-cita:hover {
+  background-color: #070bee; /* Color verde más oscuro en hover */
+}
+
+/* Estilo para el texto de fecha y hora */
+.text-success {
+  color: green;
+}
+
+.text-error {
+  color: red;
+}
+
+
+/* Estilos para móviles */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 8px 16px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
