@@ -14,7 +14,7 @@ export const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <NavLink className="nav-enlace" to="/">Inicio<span className="sr-only"></span></NavLink>
+                <NavLink className="nav-enlace" to="/home">Inicio<span className="sr-only"></span></NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-enlace" to="/GestionCitas" >Gestionar Cita</NavLink>

@@ -1,7 +1,11 @@
 import logo from "../logo.png"
+import { Navbar } from "../componentes/Navbar"
 
 export const Home = () => {
   return (
+    <>
+    <Navbar></Navbar>
+    
     <div className="inicio">
 
       <div className="logo-inicio" >
@@ -18,5 +22,6 @@ export const Home = () => {
 
 
     </div>
+    </>
   )
 }

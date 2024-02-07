@@ -1,5 +1,6 @@
 import Select from 'react-select'
 import { useSelect } from "../hooks/useSelect"
+import { Navbar } from "../componentes/Navbar"
 
 export const CancelarCita = () => {
 
@@ -7,6 +8,7 @@ export const CancelarCita = () => {
 
   return (
     <>
+    <Navbar></Navbar>
       <form className='select-form'> 
         <Select
           value={motivo}

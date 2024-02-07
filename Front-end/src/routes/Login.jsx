@@ -1,13 +1,9 @@
 export const Login = () => {
-
-
-
     return (
         <div>
             <h1>SISMED</h1>
 
             <h2>Sistema de gestión de citas médicas</h2>
-
             <form className="container">
                 <div className="container">
                     <label htmlFor="exampleInputEmail1">Email</label>
@@ -19,7 +15,6 @@ export const Login = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Ingresar</button>
             </form>
-
         </div>
     )
 }

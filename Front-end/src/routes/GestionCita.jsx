@@ -3,6 +3,7 @@ import { useSelect } from "../hooks/useSelect"
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import { useState } from 'react'
+import { Navbar } from "../componentes/Navbar"
 
 
 export const GestionCita = () => {
@@ -23,7 +24,7 @@ export const GestionCita = () => {
 
   return (
     <>
-
+<Navbar></Navbar>
       <div className='select-form'>
 
         <h2 className="subtitulo-formulario"><strong>Selección área médica</strong></h2>
