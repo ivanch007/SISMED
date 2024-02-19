@@ -25,6 +25,12 @@ export const useSelect = () => {
 
     ]
 
+    const opcionesDocumento = [
+        {documento: 'Cedula', label: 'Cedula'},
+        {documento: 'Pasaporte', label: 'Pasaporte'},
+        {documento: 'Cedula extranjeria', label: 'Cedula extranjeria'}
+    ]
+
     //Logica para seleccionar el area medica
 
     const [value, setValue] = useState(null)
@@ -54,6 +60,15 @@ export const useSelect = () => {
 
     }
 
+    //Logica para seleccionar documento.
+
+    const [documento, setDocumento] = useState(null)
+
+    const documentoOnchange = (value) =>{
+        console.log(value)
+        setDocumento(value)
+    }
+
     return {
         value,
         manejoOnChange,
@@ -63,7 +78,9 @@ export const useSelect = () => {
         profesionalOnChange,
         motivo,
         opcionesCancelar,
-        motivoOnChange
-        
+        motivoOnChange,
+        opcionesDocumento,
+        documento,
+        documentoOnchange
     }
 }

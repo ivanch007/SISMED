@@ -5,7 +5,6 @@ import db from "../database/db.js";
 
 const UsuarioModel = db.define('usuarios', {
     id: {type: DataTypes.NUMBER, primaryKey: true},
-    tipoDocumento: {type: DataTypes.STRING},
     numDocumento: {type: DataTypes.NUMBER},
     nombre: {type: DataTypes.STRING},
     apellido:{type: DataTypes.STRING},

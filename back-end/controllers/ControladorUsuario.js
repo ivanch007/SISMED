@@ -1,3 +1,4 @@
+import { where, Op } from "sequelize";
 import UsuarioModel from "../models/UsuarioModel.js";
 
 //Metodos para el CRUD
@@ -28,10 +29,24 @@ export const getRegister = async (req, res) => {
 //Crear un registro.
 export const createRegister = async (req, res) => {
     try {
-        await UsuarioModel.create(req.body)
-        res.json({
-            "message": "registro creado correctamente"
+
+        const user = await UsuarioModel.findAll({
+            where: {
+                [Op.or]: [{ email: req.body.email },
+                    {numDocumento : req.body.numDocumento}]
+            } 
         })
+
+        if(user == null){
+            return res.json({
+                "message": "Usuario ya existe"
+            })        
+        }
+
+        await UsuarioModel.create(req.body)
+        res.json({ message: "Usuario creado satifactoriamente" })
+
+        
     } catch (error) {
         res.json({ message: error.message })
     }
