@@ -1,13 +1,14 @@
-import express from 'express'
-import { createRegister, deleteRegister, getAllRegister, getRegister, updateRegister } from '../controllers/ControladorUsuario.js'
-const router = express.Router()
+// routes/registerRoutes.js
+import express from 'express';
+import { createRegister, deleteRegister, getAllRegister, getRegister, updateRegister } from '../controllers/ControladorUsuario.js'; 
 
-//Se crean las rutas para acceder a los registros.
+const router = express.Router();
 
-router.get('/', getAllRegister)
-router.get('/:id', getRegister)
-router.post('/', createRegister)
-router.put('/:id', updateRegister)
-router.delete('/:id', deleteRegister)
+// Rutas CRUD para usuarios
+router.get('/', getAllRegister);
+router.get('/:id', getRegister);
+router.post('/', createRegister);
+router.put('/:id', updateRegister);
+router.delete('/:id', deleteRegister);
 
-export default router
+export default router;

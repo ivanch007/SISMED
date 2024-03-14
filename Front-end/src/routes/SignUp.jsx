@@ -1,25 +1,30 @@
-import logo from "../logo.png";
-import axios from 'axios';
-import { useState } from 'react';
+import logo from "../logo.png"
+import axios from 'axios'
+import { useState } from 'react'
+import Swal from 'sweetalert2'
 
 export const SignUp = () => {
 
-  const url = 'http://localhost:8000/register/';
+  const url = 'http://localhost:8000/register/'
 
-  const [numDocumento, setNumDocumento] = useState(Number);
-  const [email, setEmail] = useState('');
-  const [nombre, setNombre] = useState('');
-  const [apellido, setApellido] = useState('');
-  const [contraseña, setContraseña] = useState('');
+  const [numDocumento, setNumDocumento] = useState('')
+  const [email, setEmail] = useState('')
+  const [nombre, setNombre] = useState('')
+  const [apellido, setApellido] = useState('')
+  const [contraseña, setContraseña] = useState('')
 
-  // useEffect(() => {
-  //   createRegistro();
-  // }, []);
-
-  // Procedimiento para guardar el registro.
   const createRegistro = async (e) => {
-
     e.preventDefault()
+    
+    if (!numDocumento || !nombre || !apellido || !email || !contraseña) {
+      // Mostrar SweetAlert de campos requeridos faltantes
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos requeridos',
+        text: 'Por favor, completa todos los campos antes de continuar'
+      })
+      return
+    }
 
     try {
       const response = await axios.post(url, {
@@ -29,11 +34,29 @@ export const SignUp = () => {
         email: email,
         contraseña: contraseña
       })
-      console.log(`Registro creado exitosamente en ${response}`)
+
+      // Mostrar SweetAlert de registro exitoso
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro exitoso',
+        text: 'El usuario ha sido registrado correctamente'
+      })
+
+      // Reiniciar los valores de los campos del formulario
+      setNumDocumento('')
+      setEmail('')
+      setNombre('')
+      setApellido('')
+      setContraseña('')
+      
     } catch (error) {
-      console.error(`Error al crear registro: ${error}`)
+      // Mostrar SweetAlert de error al crear el registro
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un error al crear el registro. Verifica los datos ingresados'
+      })
     }
-    
   }
   
   return (
@@ -105,5 +128,5 @@ export const SignUp = () => {
         <button type="submit" className="btn btn-primary">Registrar</button>
       </form>
     </div>
-  );
-};
+  )
+}

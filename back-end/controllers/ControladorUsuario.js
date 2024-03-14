@@ -1,5 +1,6 @@
 import { where, Op } from "sequelize";
 import UsuarioModel from "../models/UsuarioModel.js";
+import bcrypt from "bcryptjs"
 
 //Metodos para el CRUD
 
@@ -14,7 +15,6 @@ export const getAllRegister = async (req, res) => {
 }
 
 //Mostrar solo un registro.
-
 export const getRegister = async (req, res) => {
     try {
         const register = await UsuarioModel.findAll({
@@ -27,30 +27,39 @@ export const getRegister = async (req, res) => {
 }
 
 //Crear un registro.
+
 export const createRegister = async (req, res) => {
     try {
-
-        const user = await UsuarioModel.findAll({
+        // Verificar si el usuario ya existe
+        const existingUser = await UsuarioModel.findOne({
             where: {
-                [Op.or]: [{ email: req.body.email },
-                    {numDocumento : req.body.numDocumento}]
-            } 
-        })
-
-        if(user == null){
-            return res.json({
-                "message": "Usuario ya existe"
-            })        
+                [Op.or]: [
+                    { email: req.body.email },
+                    { numDocumento: req.body.numDocumento }
+                ]
+            }
+        });
+        
+        if (existingUser) {
+            return res.status(400).json({ message: 'El usuario ya existe' });
         }
 
-        await UsuarioModel.create(req.body)
-        res.json({ message: "Usuario creado satifactoriamente" })
+        // Encriptar la contraseña
+        const hashedPassword = await bcrypt.hash(req.body.contraseña, 10);
 
-        
+        // Crear un nuevo usuario con la contraseña encriptada
+        const newUser = await UsuarioModel.create({
+            ...req.body,
+            contraseña: hashedPassword // Asignar la contraseña encriptada al usuario
+        });
+
+        res.status(201).json({ message: 'Usuario creado satisfactoriamente', user: newUser });
     } catch (error) {
-        res.json({ message: error.message })
+        console.error('Error al crear usuario:', error);
+        res.status(500).json({ message: 'Error al crear usuario' });
     }
-}
+};
+
 
 //Actualizar un registro.
 export const updateRegister = async (req, res) => {
