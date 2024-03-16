@@ -12,5 +12,5 @@ const UsuarioModel = db.define('usuarios', {
     contraseña: {type: DataTypes.STRING}  
 })
 
-export default UsuarioModel
+export default UsuarioModel;
 
