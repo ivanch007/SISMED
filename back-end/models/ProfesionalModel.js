@@ -4,7 +4,7 @@ import { DataTypes } from "sequelize";
 import db from "../database/db.js";
 
 const ProfesionalModel = db.define('profesionales', {
-    id: {type: DataTypes.NUMBER, primaryKey: true},
+    profesional_id: {type: DataTypes.NUMBER, primaryKey: true},
     Nombre: {type: DataTypes.STRING},
     Apellido:{type: DataTypes.STRING},
     Departamento_medico:{type: DataTypes.STRING},

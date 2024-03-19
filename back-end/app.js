@@ -3,6 +3,8 @@ import cors from 'cors';
 import db from './database/db.js';
 import registerRoutes from './routes/routes.js';
 import loginRoutes from './routes/loginRoute.js';
+import profesionalRoutes from './routes/profesionalRoutes.js';
+import citasRoutes from './routes/citasRoutes.js';
 
 const app = express();
 
@@ -14,6 +16,12 @@ app.use('/register', registerRoutes);
 
 // Monta las rutas de inicio de sesión en el prefijo /login
 app.use('/login', loginRoutes);
+
+//ruta para profesionales
+app.use('/profesionals', profesionalRoutes)
+
+//ruta para citas || fechas
+app.use('/citas', citasRoutes)
 
 try {
    await db.authenticate();

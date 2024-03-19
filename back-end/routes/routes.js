@@ -1,4 +1,3 @@
-// routes/registerRoutes.js
 import express from 'express';
 import { createRegister, deleteRegister, getAllRegister, getRegister, updateRegister } from '../controllers/ControladorUsuario.js'; 
 
