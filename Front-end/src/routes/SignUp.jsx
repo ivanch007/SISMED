@@ -60,12 +60,12 @@ export const SignUp = () => {
   }
   
   return (
-    <div>
+    <div className="container">
       <img src={logo} className="tamaño-logo-inicio" alt="Logo" />
       <h2>Sistema de gestión de citas médicas</h2>
 
       <form onSubmit={createRegistro}>
-        <div className="form-group container">
+        
           <label>Número de documento</label>
           <input
             type="number"
@@ -75,9 +75,9 @@ export const SignUp = () => {
             value={numDocumento}
             onChange={(e) => setNumDocumento(e.target.value)}
           />
-        </div>
+       
 
-        <div className="form-group container">
+        
           <label>Email</label>
           <input
             type="email"
@@ -87,9 +87,9 @@ export const SignUp = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
+       
 
-        <div className="form-group container">
+        
           <label>Nombres</label>
           <input
             type="text"
@@ -99,9 +99,9 @@ export const SignUp = () => {
             value={nombre}
             onChange={ (e) => setNombre(e.target.value)}
           />
-        </div>
+       
 
-        <div className="form-group container">
+        
           <label>Apellidos</label>
           <input
             type="text"
@@ -111,9 +111,9 @@ export const SignUp = () => {
             value={apellido}
             onChange={(e) => setApellido(e.target.value)}
           />
-        </div>
+       
 
-        <div className="form-group container">
+        
           <label>Contraseña</label>
           <input
             type="password"
@@ -123,10 +123,10 @@ export const SignUp = () => {
             value={contraseña}
             onChange={(e) => setContraseña(e.target.value)}
           />
-        </div>
+       
 
         <button type="submit" className="btn btn-primary">Registrar</button>
       </form>
-    </div>
+   </div>
   )
 }
