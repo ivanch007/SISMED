@@ -60,7 +60,7 @@ export const SignUp = () => {
   }
   
   return (
-    <div className="container">
+    <div>
       <img src={logo} className="tamaño-logo-inicio" alt="Logo" />
       <h2>Sistema de gestión de citas médicas</h2>
 

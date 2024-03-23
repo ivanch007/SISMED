@@ -24,7 +24,6 @@ export const Login = () => {
             const { token } = response.data;
             localStorage.setItem('token', token);
 
-            // Redirige al usuario a la página deseada después de iniciar sesión
             navigate('/home'); // Redirige a la página de inicio
         } catch (error) {
             // Muestra un SweetAlert con el mensaje de error
