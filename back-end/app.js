@@ -5,6 +5,7 @@ import registerRoutes from './routes/routes.js';
 import loginRoutes from './routes/loginRoute.js';
 import profesionalRoutes from './routes/profesionalRoutes.js';
 import citasRoutes from './routes/citasRoutes.js';
+import departamentoMed from './routes/departamentoMedicoRoutes.js';
 
 const app = express();
 
@@ -22,6 +23,9 @@ app.use('/profesionals', profesionalRoutes)
 
 //ruta para citas || fechas
 app.use('/citas', citasRoutes)
+
+//ruta para departamento medico.
+app.use('/departamento_medico', departamentoMed)
 
 try {
    await db.authenticate();

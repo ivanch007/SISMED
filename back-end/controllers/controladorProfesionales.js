@@ -3,14 +3,24 @@ import ProfesionalModel from "../models/ProfesionalModel.js"
 
 //Mostrar todos los profesionales.
 
-export const getAllProfesionals = async(req, res) =>{
+export const getAllProfesionals = async (req, res) => {
     try {
-        const profesionals = await ProfesionalModel.findAll()
-        res.json(profesionals)
+        const departamentoMedico = req.query.id_departamento;
+        let profesionales;
+
+        if (departamentoMedico) {
+            // Filtrar por id_departamento si se proporciona en la consulta
+            profesionales = await ProfesionalModel.findAll({ where: { id_departamento: departamentoMedico } });
+        } else {
+            // Obtener todos los profesionales si no se proporciona el id_departamento
+            profesionales = await ProfesionalModel.findAll();
+        }
+
+        res.json(profesionales);
     } catch (error) {
-        res.json({ message: error.message })        
+        res.status(500).json({ message: error.message });
     }
-}
+};
 
 //Mostrar solo un profesional
 

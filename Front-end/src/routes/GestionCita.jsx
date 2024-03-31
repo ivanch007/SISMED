@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 export const GestionCita = () => {
 
-  const { value, manejoOnChange, opcionesAreaMedica, opcionesProfesionales, profesionalOnChange, profesional, documentoOnChange, opcionesDocumento, documento } = useSelect();
+  const { value, manejoOnChange, opcionesAreaMedica, opcionesProfesionales, profesionalOnChange, profesional } = useSelect();
 
   const [startDate, setStartDate] = useState(new Date());
 
@@ -18,7 +18,7 @@ export const GestionCita = () => {
   const manejoSubmit = async (e) => {
     e.preventDefault();
 
-    if (value === null || profesional === null || documento === null) {
+    if (value === null || profesional === null ) {
       alert("Debe seleccionar todas las opciones");
       return;
     }
@@ -48,7 +48,7 @@ export const GestionCita = () => {
                 value={profesional}
                 options={opcionesProfesionales}
                 onChange={profesionalOnChange}
-                getOptionLabel={(option) => `${option.Nombre} ${option.Apellido}`} // Mostrar nombre y apellido del profesional
+                getOptionLabel={(option) =>  `${option.Nombre} ${option.Apellido}`} // Mostrar nombre y apellido del profesional
               />
               <p>Has seleccionado: {profesional ? `${profesional.Nombre} ${profesional.Apellido}` : 'Ninguna opción seleccionada'}</p>
             </form>
@@ -66,21 +66,10 @@ export const GestionCita = () => {
             <p>La fecha y hora seleccionada es: {startDate ? startDate.toLocaleString() : 'Ninguna fecha seleccionada'}</p>
           </form>
         </div>
-        <div className='select-form'>
-          <h2><strong>Seleccione el tipo de documento</strong></h2>
-          <form className='container'>
-            <Select
-              value={documento}
-              options={opcionesDocumento}
-              onChange={documentoOnChange}
-            />
-            <p>Has seleccionado: {documento ? documento.label : 'Ninguna opción seleccionada'}</p>
-          </form>
-        </div>
         <div>
           <form onSubmit={manejoSubmit}>
             <button type='submit' onClick={() => {
-              if (value === null && profesional === null && documento === null) {
+              if (value === null && profesional === null) {
                 alert("Debe seleccionar todas las opciones")
               } else {
                 alert(`Su cita con ${value.label} con el profesional ${profesional.Nombre} ${profesional.Apellido} en la fecha y hora ${startDate.toLocaleString()} ha sido asignada`)
