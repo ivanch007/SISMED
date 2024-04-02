@@ -45,6 +45,9 @@ export const useSelect = () => {
     const [value, setValue] = useState(null);
 
     const manejoOnChange = async (value) => {
+        if (value === null) {
+            return;
+        }
         setValue(value);
         try {
             const response = await axios.get(`http://localhost:8000/profesionals?departamento_medico=${value.value}`);
@@ -61,6 +64,7 @@ export const useSelect = () => {
             console.error('Error al obtener los profesionales:', error);
         }
     };
+    
     
     
     const [profesional, setProfesional] = useState(null);
